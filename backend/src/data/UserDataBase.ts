@@ -1,8 +1,9 @@
 import BaseDataBase from "./BaseDataBase";
 import { User } from "../models/User";
+import { Tweet } from "../models/Tweet";
 
 export default class UserDataBase extends BaseDataBase {
-  public static readonly TABLE_NAME: string = "tweetControl_users";
+  
 
   public async signup(user: User) {
     await this.getConnection()
@@ -21,5 +22,10 @@ export default class UserDataBase extends BaseDataBase {
       .where({ email })
       .from(UserDataBase.TABLE_NAME);
     return result[0];
+  }
+
+  public async approveTweet(tweet: Tweet): Promise<void> {
+    await this.getConnection().insert(tweet)
+    .into(BaseDataBase.TABLE_TWEET)
   }
 }

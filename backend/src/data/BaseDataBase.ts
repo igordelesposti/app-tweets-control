@@ -6,9 +6,11 @@ dotenv.config();
 
 export default abstract class BaseDatabase {
   private static connection: Knex | null = null;
-
+  
   public static readonly TABLE_NAME: string = "tweetControl_users";
   public static readonly TABLE_TWEET: string = "tweetControl_tweets";
+  
+  
   
   protected getConnection(): Knex {
     if (!BaseDatabase.connection) {
