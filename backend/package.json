@@ -30,6 +30,7 @@
     "@types/jsonwebtoken": "^8.5.0",
     "@types/knex": "^0.16.1",
     "@types/node": "^14.0.27",
+    "@types/twit": "^2.2.25",
     "@types/uuid": "^8.0.0",
     "serverless-dotenv-plugin": "^2.4.2",
     "serverless-offline": "^6.5.0",

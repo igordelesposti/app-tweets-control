@@ -1,12 +1,10 @@
 import { Request, Response } from "express";
-import CustomError from "../err/CustomError";
-import { Authenticator } from "../services/Authenticator";
-import UserDatabase from "../data/UserDatabase";
 import UserBusiness from "../business/UserBusiness";
+import CustomError from "../err/CustomError";
 
 export default class UserController {
   public async signUp(request: Request, response: Response) {
-    const { name, email, password} = request.body;
+    const { name, email, password } = request.body;
 
     try {
       const accessToken = await new UserBusiness().signUp({
@@ -26,14 +24,13 @@ export default class UserController {
   }
 
   public async login(request: Request, response: Response) {
-    const { email, password} = request.body;
+    const { email, password } = request.body;
 
     try {
       const accessToken = await new UserBusiness().login({
         email,
         password,
       });
-
 
       response.status(200).send({ accessToken });
     } catch (err) {
@@ -45,4 +42,3 @@ export default class UserController {
     }
   }
 }
-
