@@ -62,3 +62,5 @@ Execute a aplicação:
 ```
 $ npm run start
 ```
+## Contact
+Created by [Igor Delesposti](https://github.com/igordelesposti) - feel free to contact me!
