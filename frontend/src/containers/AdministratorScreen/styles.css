@@ -76,6 +76,18 @@
   font: 1.6rem Archivo;
 }
 
+#search-tweets .input-block button {
+  width: 100%;
+  height: 5.6rem;
+  margin-top: 0.8rem;
+  border-radius: 0.8rem;
+  background: var(--color-input-background);
+  border: 1px solid var(--color-line-in-white);
+  outline: 0;
+  padding: 0 1.6rem;
+  font: 1.6rem Archivo;
+}
+
 #search-tweets .input-block:focus-within::after {
   width: calc(100% - 3.2rem);
   height: 2px;
@@ -130,43 +142,40 @@
 }
 
 .tweet-item footer {
-    padding: 3.2rem 2rem;
-    background:var(--color-box-footer);
-    border-top: 1px solid var(--color-line-in-white);
-    margin-top: 3.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  padding: 3.2rem 2rem;
+  background: var(--color-box-footer);
+  border-top: 1px solid var(--color-line-in-white);
+  margin-top: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-.tweet-item .btn-reject{
-    background: red;
+.tweet-item .btn-reject {
+  background: red;
 }
 
-
-.tweet-item .btn-reject:hover{
-    background: var(--color-reject-dark);
+.tweet-item .btn-reject:hover {
+  background: var(--color-reject-dark);
 }
 .tweet-item footer button {
-    width: 20rem;
-    height: 5.6rem;
-    background: var(--color-secundary);
-    color: var(--color-button-text);
-    border: 0;
-    border-radius: 0.8rem;
-    cursor: pointer;
-    font: 700 1.4rem Archivo;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    transition: 0.2s;
+  width: 20rem;
+  height: 5.6rem;
+  background: var(--color-secundary);
+  color: var(--color-button-text);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font: 700 1.4rem Archivo;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: 0.2s;
 }
 
-.tweet-item footer button:hover{
-    background: var(--color-secundary-dark) ;
+.tweet-item footer button:hover {
+  background: var(--color-secundary-dark);
 }
-
 
 /* DESKTOP */
 
@@ -214,16 +223,16 @@
 
   .tweet-item header,
   .tweet-item footer {
-      padding: 3.2rem;
+    padding: 3.2rem;
   }
 
   .tweet-item > p {
-      padding: 0 3.2rem;
+    padding: 0 3.2rem;
   }
 
   .tweet-item footer button {
-      width: 24.5rem;
-      font-size: 1.7rem;
-      justify-content: center;
+    width: 24.5rem;
+    font-size: 1.7rem;
+    justify-content: center;
   }
 }

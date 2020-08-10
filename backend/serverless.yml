@@ -1,0 +1,30 @@
+plugins:
+  - serverless-offline
+  - serverless-webpack
+  - serverless-dotenv-plugin
+
+# Nome do projeto
+# Será usado para construir o nome da Lambda e do API Gateway
+# MUDE AQUI!
+service: app-tweet-control
+
+provider:
+  name: aws
+  runtime: nodejs12.x 
+  stage: dev 
+  region: us-east-1 
+
+custom:
+  webpack:
+    webpackConfig: webpack.config.js
+    packager: "npm"
+    includeModules: true 
+
+
+functions:
+  app:
+    handler: src/lambda.handler # MUDE AQUI se não usou o src/lambda.ts
+    events: 
+      - http: ANY / 
+      - http: "ANY {proxy+}" 
+      - cors: true

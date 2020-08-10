@@ -5,9 +5,21 @@ import "./styles.css";
 import { connect } from "react-redux";
 import { routes } from "../Router";
 import { push } from "connected-react-router";
+import { getApprovedTweets } from "../../actions/tweets"
 
 
 export class ApprovedTweets extends React.Component {
+
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      this.props.getApprovedTweets();
+    }, 5000)
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval)
+  }
+  
   render() {
     return (
       <div id="page-approve-tweet" className="container">
@@ -15,7 +27,7 @@ export class ApprovedTweets extends React.Component {
           <div className="top-bar-container">
             <span>
               <img onClick={this.props.goToHomePage}
-              src={backIcon} alt="Voltar" />
+                src={backIcon} alt="Voltar" />
             </span>
             <img src={logoGlobo} alt="Globo" />
           </div>
@@ -26,47 +38,24 @@ export class ApprovedTweets extends React.Component {
         </header>
 
         <main>
-          <article className="tweet-item">
-            <header>
-              <img src="https://avatars2.githubusercontent.com/u/56797122?s=460&u=cd8c24f112522c9ae9222d3e7947bbb11d04d7b5&v=4" alt="Igor Delesposti" />
-              <div>
-                <strong>@igordelesposti</strong>
-              </div>
-            </header>
+          {this.props.approvedTweets &&
+            this.props.approvedTweets.map((tweet) => {
+              return (
+                <article className="tweet-item" key={tweet.id}>
+                  <header>
+                    <img src="https://logodownload.org/wp-content/uploads/2013/12/rede-globo-logo-4.png" alt="Logo Globo" />
+                    <div>
+                      <strong><i>@{tweet.user_tweet}</i></strong>
+                    </div>
+                  </header>
 
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. <i>#loremipsum</i>
-            </p>
+                  <p>
+                    {tweet.content_tweet}
+                  </p>
+                </article>
+              )
+            })}
 
-
-          </article>
-          <article className="tweet-item">
-            <header>
-              <img src="https://avatars2.githubusercontent.com/u/56797122?s=460&u=cd8c24f112522c9ae9222d3e7947bbb11d04d7b5&v=4" alt="Igor Delesposti" />
-              <div>
-                <strong>@igordelesposti</strong>
-              </div>
-            </header>
-
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. <i>#loremipsum</i>
-            </p>
-
-
-          </article>
-          <article className="tweet-item">
-            <header>
-              <img src="https://avatars2.githubusercontent.com/u/56797122?s=460&u=cd8c24f112522c9ae9222d3e7947bbb11d04d7b5&v=4" alt="Igor Delesposti" />
-              <div>
-                <strong>@igordelesposti</strong>
-              </div>
-            </header>
-
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. <i>#loremipsum</i>
-            </p>
-
-          </article>
         </main>
 
       </div>
@@ -74,11 +63,16 @@ export class ApprovedTweets extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  approvedTweets: state.tweets.approvedTweets
+})
+
 const mapDispatchToProps = dispatch => {
   return {
+    getApprovedTweets: () => dispatch(getApprovedTweets()),
     goToHomePage: () => dispatch(push(routes.root))
   }
 }
 
 
-export default connect(null, mapDispatchToProps)(ApprovedTweets);
+export default connect(mapStateToProps, mapDispatchToProps)(ApprovedTweets);

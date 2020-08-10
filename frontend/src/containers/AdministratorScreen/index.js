@@ -1,7 +1,7 @@
 import React from "react";
 import backIcon from '../../assets/images/icons/back.svg';
 import logoGlobo from "../../assets/images/logobranco.png";
-import { getTweets } from "../../actions/tweets";
+import { getTweets, approveTweet } from "../../actions/tweets";
 import { connect } from 'react-redux';
 import { routes } from "../Router";
 import { push } from "connected-react-router";
@@ -12,7 +12,7 @@ export class AdministratorScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      hashTag: ""
+      hashTag: "#"
     }
   }
 
@@ -20,18 +20,24 @@ export class AdministratorScreen extends React.Component {
     const token = localStorage.getItem("accessToken")
 
     if (token === null) {
-      alert("Você precisa fazer o login")
+      alert("Você precisa fazer o login");
       this.props.goToLoginScreen();
+    } else {
+      this.countdown = setInterval(this.setState.hashTag, 1000)
     }
   }
 
   handleInputChange = (event) => {
-    this.setState({ hashTag: event.target.value })
+    this.setState({ hashTag: event.target.value });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.getTweets(this.state.hashTag)
+    this.props.getTweets(this.state.hashTag);
+  }
+
+  approveTweet = (id, user_tweet, content_tweet, tag) => {
+    this.props.approveTweet(id, user_tweet, content_tweet, tag);
   }
 
 
@@ -41,16 +47,19 @@ export class AdministratorScreen extends React.Component {
         <header className="page-header">
           <div className="top-bar-container">
             <span>
-              <img src={backIcon} alt="Voltar" />
+              <img
+                onClick={this.props.goToHomePage}
+                src={backIcon} alt="Voltar"
+              />
             </span>
             <img src={logoGlobo} alt="Globo" />
           </div>
 
           <div className="header-content">
-            <strong>Painel para aprovar os tweets disponíveis.</strong>
+            <strong>Painel para aprovar os tweets.</strong>
             <form onSubmit={this.handleSubmit} id="search-tweets">
               <div className="input-block">
-                <label htmlFor="subject">Pesquise sua hashtag :</label>
+                <label htmlFor="subject">Insira aqui sua hashtag:</label>
                 <input
                   type="text"
                   id="week_day"
@@ -58,7 +67,6 @@ export class AdministratorScreen extends React.Component {
                   value={this.state.hashTag}
                 />
               </div>
-              <button type="submit">PESQUISAR</button>
             </form>
           </div>
         </header>
@@ -71,7 +79,7 @@ export class AdministratorScreen extends React.Component {
               return (
                 <article className="tweet-item" key={tweet.id}>
                   <header>
-                    {/* <img src="https://avatars2.githubusercontent.com/u/56797122?s=460&u=cd8c24f112522c9ae9222d3e7947bbb11d04d7b5&v=4" alt="Igor Delesposti" /> */}
+                    <img src="https://logodownload.org/wp-content/uploads/2013/12/rede-globo-logo-4.png" alt="Logo Globo" />
                     <div>
                       <strong> <i>@{tweet.username}</i></strong>
                     </div>
@@ -81,10 +89,10 @@ export class AdministratorScreen extends React.Component {
                   </p>
 
                   <footer>
-                    <button type="button" className="btn-reject">
-                      EXCLUIR
-                    </button>
-                    <button type="button" className="btn-approve">
+                    <button
+                      onClick={() => this.approveTweet(tweet.id, tweet.username, tweet.tweet, this.state.hashTag)}
+                      type="button"
+                      className="btn-approve">
                       ACEITAR
                     </button>
                   </footer>
@@ -105,7 +113,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     goToLoginScreen: () => dispatch(push(routes.loginPage)),
-    getTweets: (hashTag) => dispatch(getTweets(hashTag))
+    getTweets: (hashTag) => dispatch(getTweets(hashTag)),
+    goToHomePage: () => dispatch(push(routes.root)),
+    approveTweet: (id, user_tweet, content_tweet, tag) => dispatch(approveTweet(id, user_tweet, content_tweet, tag))
   }
 }
 

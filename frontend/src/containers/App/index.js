@@ -25,7 +25,7 @@ const store = createStore(generateReducers(history), compose(...middlewares));
 export const App = () => (
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
-      <GlobalStyle/>
+      <GlobalStyle />
       <CssBaseline />
       <Router history={history} />
     </MuiThemeProvider>
