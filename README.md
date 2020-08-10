@@ -1,5 +1,6 @@
 # app-tweets-control
 [Documentação API](https://documenter.getpostman.com/view/10914414/T1LLDStq)
+[Deploy](https://app-tweets-control.vercel.app/)
 
 ![tweet3](https://user-images.githubusercontent.com/56797122/89821419-ebd2fc80-db24-11ea-9e78-b1f97eb1aea1.gif)
 ![image](https://user-images.githubusercontent.com/56797122/89821590-36ed0f80-db25-11ea-999e-49962574b19b.png)
@@ -56,8 +57,8 @@ Tweets aprovados pelo administrador são mostrados na tela de Tweets.
 ## Serviços Cloud AWS
 * Lambda e API Gateway (para o backkend)
 
-## Serviços Firebase
-* Firebase (para o front)
+## Serviços Vercel
+* Vercel (para o front)
 
 # Como rodar a aplicação
 
