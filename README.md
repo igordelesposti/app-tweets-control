@@ -12,7 +12,6 @@ Tweets aprovados pelo administador são mostrados na tela de Tweets.
 * HTML
 * CSS
 * Javascript
-* Node
 * React (principal biblioteca para construção do site)
 * Redux (para gerenciamento de estados)
 * Redux-Thunk (para integração do redux com requisições assíncronas)
@@ -39,10 +38,10 @@ Tweets aprovados pelo administador são mostrados na tela de Tweets.
 # Infraestrutura
 
 ## Serviços Cloud AWS
+* Lambda e API Gateway (para o backkend)
 
-* EC2 (para o banco de dados)
-* Lambda e API Gateway (para o banckend)
-* AWS (para o front)
+## Serviços Firebase
+* Firebase (para o front)
 
 # Como rodar a aplicação
 
