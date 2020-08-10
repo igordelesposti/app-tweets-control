@@ -36,7 +36,7 @@ export class LoginPage extends React.Component {
                     </WrapperSvg>
                     <Form onSubmit={this.handleFormSubmit}>
 
-                        <Entrar variant="h6">Para continuar, faça login no Spotenu.</Entrar>
+                        <Entrar variant="h6">Para continuar, faça login.</Entrar>
                         <Inputs
                             name="email"
                             label="E-mail"

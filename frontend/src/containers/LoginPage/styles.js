@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper'
 
-
 export const WrapperSvg = styled.div`
     display: flex;
     flex-direction: column;
@@ -12,7 +11,6 @@ export const WrapperSvg = styled.div`
     align-items: center;
     margin: 0 auto;
     padding-top: 30px;
-    
 `
 
 export const AvatarSvg = styled.img`
@@ -45,7 +43,6 @@ export const Entrar = styled(Typography)`
 `
 
 export const Inputs = styled(TextField)`
-    
     
 `
 export const EntrarButton = styled(Button)`

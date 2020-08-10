@@ -34,11 +34,10 @@ export const LoginWrapper = styled.div`
     justify-items: center;
     width: 100vw;
     height:100vh;
-    background: #7f8c8d;
+    background: linear-gradient(45deg, #5614b0, #4cd137);
 `
 
 export const Entrar = styled.p`
-    /* margin-bottom: 100px; */
     text-align: center;
     font-weight: bold;
     color: green;

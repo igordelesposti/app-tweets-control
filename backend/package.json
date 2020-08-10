@@ -4,7 +4,7 @@
   "description": "teste redeglobo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node ./node_modules/jest/bin/jest.js",
     "start:dev": "ts-node-dev src/index.ts"
   },
   "author": "Igor Delesposti",
@@ -37,7 +37,7 @@
     "serverless-webpack": "^5.3.3",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.5",
-    "webpack": "^4.44.0",
+    "webpack": "^4.44.1",
     "webpack-node-externals": "^1.7.2"
   }
 }

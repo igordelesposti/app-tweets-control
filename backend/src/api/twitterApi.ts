@@ -25,12 +25,10 @@ export class TwitterApi {
               id: tweet.id,
               username: tweet.user.screen_name,
               tweet: tweet.text,
-
             };
           });
           resolve(tweets);
           console.log(data)
-          
         }
       );
     });

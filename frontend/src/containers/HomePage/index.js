@@ -26,20 +26,22 @@ export class HomePage extends React.Component {
 
                     <div className="buttons-container">
 
+
                         <button
-                            className="study"
+                            onClick={this.props.goToApprovedTweets}
+                            className="tweets"
+                        >
+                            <img src={twitterIcon} alt="ApprovedTweets" />
+                        Tweets
+                        </button>
+
+                        <button
+                            className="admin"
                             onClick={this.props.goToAdministratorScreen}
                         >
                             <img src={adminIcon} alt="AdministratorScreen" />
                         Admin
-                    </button>
-                        <button
-                            onClick={this.props.goToApprovedTweets}
-                            className="give-classes"
-                        >
-                            <img src={twitterIcon} alt="ApprovedTweets" />
-                        Tweets
-                    </button>
+                        </button>
                     </div>
 
                     <span className="total-connections">
