@@ -1,7 +1,8 @@
 # app-tweets-control
 
 # Escopo do projeto
-Essa é uma aplicação desenvolvida em mobile-first, com a funcionalidade de controlar e receber tweets com determinada hashtag configurável e moderando os tweets para ser mostrado em outra tela apenas os tweets aprovados pelo administrador.
+Essa é uma aplicação desenvolvida em mobile-first, com a funcionalidade de controlar e receber tweets com determinada hashtag configurável e moderando os tweets.
+Tweets aprovados pelo administador são mostrados na tela de Tweets.
 
 # Principais linguagens, tecnologias e ferramentas utilizadas
 
