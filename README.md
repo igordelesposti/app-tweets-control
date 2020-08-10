@@ -1,4 +1,5 @@
 # app-tweets-control
+[Documentação API](https://documenter.getpostman.com/view/10914414/T1LLDStq)
 
 # Escopo do projeto
 Essa é uma aplicação desenvolvida em mobile-first, com a funcionalidade de controlar e receber tweets com determinada hashtag configurável e moderando os tweets.
