@@ -5,7 +5,7 @@ import HomePage from "../HomePage";
 import AdministratorScreen from "../AdministratorScreen";
 import ApprovedTweets from "../ApprovedTweets";
 import SignUpAdministrator from "../SignUpAdministrator";
-import { LoginPage } from "../LoginPage";
+import LoginPage  from "../LoginPage";
 
 export const routes = {
     root: "/",
