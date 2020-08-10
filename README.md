@@ -6,6 +6,14 @@
 
 ## Obs: O programa de captura de tela utilizado distorce o background-linear da aplicação.
 
+## Teste da aplicação:
+E-mail e password para login:
+```
+igor@gmail.com
+123456
+```
+ou crie um usuário.
+
 # Escopo do projeto
 Essa é uma aplicação desenvolvida em mobile-first, com a funcionalidade de controlar e receber tweets com determinada hashtag configurável e moderando os tweets.
 Tweets aprovados pelo administrador são mostrados na tela de Tweets.
