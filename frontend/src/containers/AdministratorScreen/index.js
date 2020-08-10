@@ -3,14 +3,27 @@ import backIcon from '../../assets/images/icons/back.svg';
 import logoGlobo from "../../assets/images/logobranco.png";
 import { getTweets } from "../../actions/tweets";
 import { connect } from 'react-redux';
+import { routes } from "../Router";
+import { push } from "connected-react-router";
 import "./styles.css";
 
 
 export class AdministratorScreen extends React.Component {
-  state = {
-    hashTag: ""
+  constructor(props) {
+    super(props)
+    this.state = {
+      hashTag: ""
+    }
   }
 
+  componentDidMount() {
+    const token = localStorage.getItem("accessToken")
+
+    if (token === null) {
+      alert("Você precisa fazer o login")
+      this.props.goToLoginScreen();
+    }
+  }
 
   handleInputChange = (event) => {
     this.setState({ hashTag: event.target.value })
@@ -18,10 +31,7 @@ export class AdministratorScreen extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
     this.props.getTweets(this.state.hashTag)
-
-    console.log(this.props.tweets)
   }
 
 
@@ -63,7 +73,7 @@ export class AdministratorScreen extends React.Component {
                   <header>
                     {/* <img src="https://avatars2.githubusercontent.com/u/56797122?s=460&u=cd8c24f112522c9ae9222d3e7947bbb11d04d7b5&v=4" alt="Igor Delesposti" /> */}
                     <div>
-                      <strong>{tweet.username}</strong>
+                      <strong> <i>@{tweet.username}</i></strong>
                     </div>
                   </header>
                   <p>
@@ -89,11 +99,12 @@ export class AdministratorScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  tweets: state.tweet.tweets
+  tweets: state.tweets.tweets
 })
 
 const mapDispatchToProps = dispatch => {
   return {
+    goToLoginScreen: () => dispatch(push(routes.loginPage)),
     getTweets: (hashTag) => dispatch(getTweets(hashTag))
   }
 }

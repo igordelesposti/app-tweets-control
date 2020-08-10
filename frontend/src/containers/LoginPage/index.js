@@ -20,7 +20,7 @@ export class LoginPage extends React.Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state.loginForm)
+
         this.props.login(this.state.loginForm)
     }
 
@@ -72,11 +72,12 @@ export class LoginPage extends React.Component {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => {
 
-    goToSignUpAdministrator: () => dispatch(push(routes.signupAdministrator)),
-    login: (body) => dispatch(login(body))
-
-})
+    return {
+        goToSignUpAdministrator: () => dispatch(push(routes.signupAdministrator)),
+        login: (body) => dispatch(login(body))
+    }
+}
 
 export default connect(null, mapDispatchToProps)(LoginPage);
