@@ -2,10 +2,13 @@
 [Documentação API](https://documenter.getpostman.com/view/10914414/T1LLDStq)
 
 ![tweet3](https://user-images.githubusercontent.com/56797122/89821419-ebd2fc80-db24-11ea-9e78-b1f97eb1aea1.gif)
+![image](https://user-images.githubusercontent.com/56797122/89821590-36ed0f80-db25-11ea-999e-49962574b19b.png)
+
+## Obs: O programa de captura de tela utilizado distorce o background-linear da aplicação.
 
 # Escopo do projeto
 Essa é uma aplicação desenvolvida em mobile-first, com a funcionalidade de controlar e receber tweets com determinada hashtag configurável e moderando os tweets.
-Tweets aprovados pelo administador são mostrados na tela de Tweets.
+Tweets aprovados pelo administrador são mostrados na tela de Tweets.
 
 # Principais linguagens, tecnologias e ferramentas utilizadas
 
