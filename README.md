@@ -12,7 +12,10 @@ E-mail e password para login:
 igor@gmail.com
 123456
 ```
-ou crie um usuário.
+Ao clicar no botão "Admin" você será direcionado para tela de login, caso queira, clique em "Não possuo um usuário" para criar um novo usuário Administrador.
+
+![image](https://user-images.githubusercontent.com/56797122/89821962-cf838f80-db25-11ea-8e73-cbf791f07d95.png)
+![image](https://user-images.githubusercontent.com/56797122/89821987-db6f5180-db25-11ea-970f-d8f7e75008cb.png)
 
 # Escopo do projeto
 Essa é uma aplicação desenvolvida em mobile-first, com a funcionalidade de controlar e receber tweets com determinada hashtag configurável e moderando os tweets.
