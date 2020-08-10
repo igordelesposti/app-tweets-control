@@ -13,7 +13,7 @@ export default class UserController {
         password,
       });
 
-      response.status(200).send({ accessToken });
+      response.status(200).send(accessToken);
     } catch (err) {
       if (err instanceof CustomError)
         response.status(err.status).send({ error: err.message });
@@ -32,7 +32,7 @@ export default class UserController {
         password,
       });
 
-      response.status(200).send({ accessToken });
+      response.status(200).send(accessToken);
     } catch (err) {
       if (err instanceof CustomError)
         response.status(err.status).send({ error: err.message });

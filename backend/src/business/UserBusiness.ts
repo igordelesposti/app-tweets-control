@@ -1,6 +1,6 @@
 import { signUpDTO, User, loginDTO } from "../models/User";
 import CustomError from "../err/CustomError";
-import UserDataBase from "../data/UserDatabase";
+import UserDB from "../data/UserDataBase";
 import { IdGenerator } from "../services/IdGenerator";
 import { HashManager } from "../services/HashManager";
 import { Authenticator } from "../services/Authenticator";
@@ -8,7 +8,7 @@ import { Authenticator } from "../services/Authenticator";
 export default class UserBusiness {
 
   public async signUp({ name, email, password }: signUpDTO) {
-    const userDatabase = new UserDataBase();
+    const userDatabase = new UserDB();
 
     const userExist = await userDatabase.getUserByEmail(email);
 
@@ -47,7 +47,7 @@ export default class UserBusiness {
   }
 
   public async login({ email, password }: loginDTO) {
-    const userDatabase = new UserDataBase();
+    const userDatabase = new UserDB();
 
     const user = await userDatabase.getUserByEmail(email);
 

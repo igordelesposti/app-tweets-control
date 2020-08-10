@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { TwitterApi } from "../api/twitterApi";
 import TweetDataBase from "../data/TweetDataBase";
-import UserDataBase from "../data/UserDatabase";
+import UserDataBase from "../data/UserDataBase";
 import CustomError from "../err/CustomError";
 import { Authenticator } from "../services/Authenticator";
 
